@@ -5,10 +5,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import PostJobModal from "@/components/PostJobModal";
+import DemoBanner from "@/components/DemoBanner";
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("jobs");
   const [showPostJobModal, setShowPostJobModal] = useState(false);
+  const [showBanner, setShowBanner] = useState(true);
 
   const jobs = [
     {
@@ -31,6 +33,7 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {showBanner && <DemoBanner onClose={() => setShowBanner(false)} />}
       {/* Header */}
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -7,12 +7,14 @@ import { Badge } from "@/components/ui/badge";
 import ResumeModal from "@/components/ResumeModal";
 import NoteModal from "@/components/NoteModal";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import DemoBanner from "@/components/DemoBanner";
 
 const Pipeline = () => {
   const [activeTab, setActiveTab] = useState("pipeline");
   const [selectedApplicant, setSelectedApplicant] = useState(null);
   const [showResumeModal, setShowResumeModal] = useState(false);
   const [showNoteModal, setShowNoteModal] = useState(false);
+  const [showBanner, setShowBanner] = useState(true);
   const [applicants, setApplicants] = useState([
     {
       id: 1,
@@ -158,6 +160,7 @@ const Pipeline = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {showBanner && <DemoBanner onClose={() => setShowBanner(false)} />}
       {/* Header */}
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
